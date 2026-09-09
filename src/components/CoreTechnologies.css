@@ -1,0 +1,107 @@
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.tech-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background-color: var(--surface-card);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 24px 16px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: border-color 0.28s ease, transform 0.28s ease, background-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+/* Ambient radial glow radiating from behind the icon on hover */
+.tech-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 35%, var(--brand-bg, rgba(255, 255, 255, 0.08)) 0%, transparent 75%);
+  opacity: 0;
+  transition: opacity 0.28s ease;
+  pointer-events: none;
+}
+
+.tech-card:hover {
+  border-color: var(--brand-color);
+  transform: translateY(-4px);
+  background-color: #171717;
+  box-shadow: 0 0 24px -2px var(--brand-glow), 0 10px 24px -4px rgba(0, 0, 0, 0.7);
+}
+
+.tech-card:hover::before {
+  opacity: 1;
+}
+
+.tech-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 1;
+  transition: color 0.28s ease, transform 0.28s ease, filter 0.28s ease;
+}
+
+.tech-icon-wrapper svg {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.tech-card:hover .tech-icon-wrapper {
+  color: var(--brand-color);
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 10px var(--brand-glow));
+}
+
+.tech-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.tech-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.tech-card:hover .tech-name {
+  color: #ffffff;
+}
+
+.tech-category {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+}
+
+.tech-card:hover .tech-category {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 480px) {
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,32 +1,52 @@
-# React + TypeScript + Vite
+# Abdussomad Tobi Ajayi — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern portfolio website for Abdussomad Tobi Ajayi, a full-stack developer focused on building end-to-end web products, APIs, dashboards, and developer-first digital experiences.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project is a personal portfolio and software engineering showcase built with React, TypeScript, Vite, and CSS. It presents professional background, technical services, selected project work, technology stack, and direct contact pathways.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- TypeScript
+- Vite 8
+- React Router
+- Framer Motion
+- Lucide React
+- CSS Modules / Custom CSS
 
-## Expanding the Oxlint configuration
+## Project Structure
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```text
+src/
+  components/      UI sections such as Hero, Navbar, Projects, Services, Contact, and About
+  assets/          local image and project assets
+  App.tsx          route structure and app-level composition
+  main.tsx         application bootstrap
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Local Development
+
+```bash
+npm install
+npm run dev
+```
+
+The development server will run locally with Vite.
+
+## Production Build
+
+```bash
+npm run build
+```
+
+The production build is generated in the `dist/` directory.
+
+## Contact
+
+- Email: abdussomad8720@gmail.com
+- Phone: +234 915 150 7804
+- LinkedIn: https://www.linkedin.com/in/abdussomad-ajayi-06a5ab299/
+- GitHub: https://github.com/abdulAjayi
+- X: https://x.com/techAddict_w

@@ -1,0 +1,391 @@
+.navbar-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color var(--transition-medium),
+    border-color var(--transition-medium);
+}
+
+.navbar-header.is-scrolled {
+  background-color: rgba(10, 10, 10, 0.92);
+  border-bottom-color: var(--border-card);
+}
+
+.navbar-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 18px clamp(20px, 5vw, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand — Far Left */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brand-name {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.brand-dot {
+  color: var(--text-secondary);
+}
+
+/* Right-Side Group: Nav Links + CTA Button */
+.navbar-right-group {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 36px);
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+  padding: 4px 0;
+}
+
+.nav-link:hover {
+  color: var(--text-secondary);
+}
+
+.nav-link.is-active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Right Action CTA Button */
+.navbar-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 9px 20px;
+  border-radius: var(--btn-radius, 4px);
+  background-color: #fafafa;
+  color: #0a0a0a;
+  border: 1px solid #fafafa;
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.navbar-cta-btn:hover {
+  background-color: #e5e5e5;
+  border-color: #e5e5e5;
+  transform: translateY(-1px);
+}
+
+.navbar-cta-btn:active {
+  transform: translateY(0);
+}
+
+/* Mobile Toggle */
+.mobile-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-card);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.mobile-menu-toggle:hover {
+  background-color: var(--surface-card-hover);
+  border-color: var(--border-card-hover);
+}
+
+/* ==========================================================================
+   Mobile Sidebar Drawer (Matching CodeKage Reference Layout)
+   ========================================================================== */
+.mobile-sidebar-portal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  pointer-events: none;
+}
+
+/* Dark Scrim Backdrop (Legible background, 200ms fade) */
+.mobile-sidebar-scrim {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2001;
+  pointer-events: auto;
+  touch-action: pan-y;
+  transition: opacity 200ms ease;
+}
+
+/* Slide-out Sidebar Drawer (Right-anchored, pinned/fixed in place) */
+.mobile-sidebar-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: auto;
+  bottom: 0;
+  height: 100dvh;
+  max-height: 100dvh;
+  width: clamp(280px, 82vw, 320px);
+  background-color: #0c0c0c;
+  border-left: 1px solid var(--border-card);
+  border-right: none;
+  z-index: 2002;
+  pointer-events: auto;
+  box-shadow: -16px 0 40px rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-sidebar-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 24px 20px 28px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Drawer Header: Logo + Close Button */
+.mobile-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  margin-bottom: 4px;
+}
+
+.mobile-sidebar-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.mobile-sidebar-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.mobile-sidebar-close:hover {
+  color: var(--text-primary);
+  background-color: var(--surface-card);
+  border-color: var(--border-card);
+}
+
+/* Large, clearly separated row nav links */
+.mobile-sidebar-nav {
+  margin-bottom: 14px;
+}
+
+.mobile-sidebar-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobile-sidebar-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #a3a3a3;
+  text-decoration: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  transition:
+    color 200ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease;
+}
+
+/* Keep every non-active row in the same muted tone; only is-active becomes white. */
+.mobile-sidebar-row:hover {
+  color: #a3a3a3;
+  background-color: #1a1a1a;
+  border-color: #2a2a2a;
+}
+
+/* Active State: Faded/muted dark gray (#2a2a2a) distinguishable tone */
+.mobile-sidebar-row.is-active {
+  background-color: #2a2a2a;
+  color: #ffffff;
+  border-color: #383838;
+  font-weight: 600;
+}
+
+.mobile-sidebar-row.is-active:hover {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.mobile-row-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.mobile-row-label {
+  color: inherit;
+  font-size: 15px;
+}
+
+/* Compact CTA Button below links (Reduced internal padding) */
+.mobile-sidebar-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 6px;
+  background-color: #fafafa;
+  color: #0a0a0a;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid #fafafa;
+  margin-top: 10px;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.06);
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.mobile-sidebar-cta-btn:hover {
+  background-color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.mobile-sidebar-cta-btn:active {
+  transform: translateY(0);
+}
+
+/* Bottom Connect & Social entries */
+.mobile-sidebar-footer {
+  margin-top: auto;
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobile-connect-heading {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #525252;
+  text-transform: uppercase;
+}
+
+.mobile-social-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mobile-social-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #141414;
+  border: 1px solid #262626;
+  color: #a3a3a3;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.mobile-social-icon-btn:hover {
+  color: #ffffff;
+  background-color: #1f1f1f;
+  border-color: #444444;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Responsive Breakpoint: 950px
+   - Full desktop navbar displays for all viewport widths > 950px
+   - Hamburger / mobile sidebar activates at <= 950px
+   - Mobile sidebar completely hidden & non-interactive on > 950px
+   ========================================================================== */
+@media (min-width: 951px) {
+  .mobile-sidebar-portal,
+  .mobile-sidebar-scrim,
+  .mobile-sidebar-drawer {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}
+
+@media (max-width: 950px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .navbar-cta-btn {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+}
