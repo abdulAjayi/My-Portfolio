@@ -61,6 +61,7 @@
 .experience-company-meta {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
   font-size: 14px;
   color: var(--text-secondary);
@@ -79,6 +80,9 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
+  max-width: 100%;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .meta-icon {
