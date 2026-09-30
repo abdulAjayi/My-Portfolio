@@ -6,6 +6,12 @@ import tasklyImg from "../assets/projects/taskly.png";
 import chatImg from "../assets/projects/group-chat.png";
 import "./ProjectsPreview.css";
 
+export interface DemoAccount {
+  roleLabel: string;
+  email: string;
+  password: string;
+}
+
 interface ProjectPreviewItem {
   id: string;
   title: string;
@@ -14,22 +20,23 @@ interface ProjectPreviewItem {
   liveUrl: string;
   tags: string[];
   image: string;
-  password?: string;
-  email?: string;
+  demoAccounts?: DemoAccount[];
 }
 
 const PROJECTS_DATA: ProjectPreviewItem[] = [
   {
-    id: "iiot-dashboard",
-    title: "Real Time Industrial IoT Energy Telemetry & Analytics Platform",
+    id: "ikeja-electric",
+    title: "Real-Time Industrial IoT Energy Telemetry & Analytics Platform",
     shortDesc:
       "Real-time IoT system monitoring substation power, detecting grid anomalies, and computing financial/carbon metrics. Features WebSocket telemetry streaming, role-based dashboards, and automated alerts for voltage, overcurrent, and harmonic faults.",
     urlPill: "ikeja-electric.vercel.app",
     liveUrl: "https://ikeja-electric.vercel.app",
-    tags: ["React", "Node.js", "PostgreSQL", "WebSockets", "Express, Tailwind CSS"],
+    tags: ["React", "Node.js", "PostgreSQL", "WebSockets", "Express", "Tailwind CSS"],
     image: iiotImg,
-    password: "Engineer123!",
-    email: "engineer@ikeja.io"
+    demoAccounts: [
+      { roleLabel: "Engineer", email: "engineer@ikeja.io", password: "Engineer123!" },
+      { roleLabel: "Executive", email: "exec@ikeja.io", password: "Exec123!" },
+    ],
   },
   {
     id: "taskly",
@@ -172,9 +179,21 @@ export const ProjectsPreview: React.FC = () => {
                 <div className="project-info">
                   <h3 className="project-title">{project.title}</h3>
                   <p className="project-short-desc">{project.shortDesc}</p>
-                  <span>engineer credentials</span>
-                  {project.email && <p>email: {project.email}</p>}
-                  {project.password && <p>password: {project.password}</p>}
+                  {project.demoAccounts && (
+
+                    <div className="credentials-container">
+                      <div className="credentials-item">
+                        <span>engineer credentials</span>
+                        <p>email: {project.demoAccounts[0].email}</p>
+                        <p>password: {project.demoAccounts[0].password}</p>
+                      </div>
+                      <div className="credentials-item">
+                        <span>executive credentials</span>
+                        <p>email: {project.demoAccounts[1].email}</p>
+                        <p>password: {project.demoAccounts[1].password}</p>
+                      </div>
+                    </div>)
+                  }
 
                   <div className="project-tags-row">
                     {project.tags.map((tag) => (

@@ -23,6 +23,19 @@
   }
 }
 
+.credentials-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.credentials-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 /* Individual Card Container — Entire card is clickable */
 .project-card-container {
   display: flex;
