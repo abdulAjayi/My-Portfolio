@@ -14,18 +14,22 @@ interface ProjectPreviewItem {
   liveUrl: string;
   tags: string[];
   image: string;
+  password?: string;
+  email?: string;
 }
 
 const PROJECTS_DATA: ProjectPreviewItem[] = [
   {
     id: "iiot-dashboard",
-    title: "Industrial IoT Monitoring Dashboard",
+    title: "Real Time Industrial IoT Energy Telemetry & Analytics Platform",
     shortDesc:
-      "A web-based dashboard enabling plant operators to inspect live equipment sensor readings and execute remote control routines with multi-step verification.",
-    urlPill: "iot-dashboard-rouge-zeta.vercel.app",
-    liveUrl: "https://iot-dashboard-rouge-zeta.vercel.app/well/well-3",
-    tags: ["React", "Node.js", "PostgreSQL", "WebSockets", "Express"],
+      "Real-time IoT system monitoring substation power, detecting grid anomalies, and computing financial/carbon metrics. Features WebSocket telemetry streaming, role-based dashboards, and automated alerts for voltage, overcurrent, and harmonic faults.",
+    urlPill: "ikeja-electric.vercel.app",
+    liveUrl: "https://ikeja-electric.vercel.app",
+    tags: ["React", "Node.js", "PostgreSQL", "WebSockets", "Express, Tailwind CSS"],
     image: iiotImg,
+    password: "Engineer123!",
+    email: "engineer@ikeja.io"
   },
   {
     id: "taskly",
@@ -168,6 +172,9 @@ export const ProjectsPreview: React.FC = () => {
                 <div className="project-info">
                   <h3 className="project-title">{project.title}</h3>
                   <p className="project-short-desc">{project.shortDesc}</p>
+                  <span>engineer credentials</span>
+                  <span>email: {project.email}</span>
+                  <span>password: {project.password}</span>
 
                   <div className="project-tags-row">
                     {project.tags.map((tag) => (
