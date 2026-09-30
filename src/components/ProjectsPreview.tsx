@@ -173,8 +173,8 @@ export const ProjectsPreview: React.FC = () => {
                   <h3 className="project-title">{project.title}</h3>
                   <p className="project-short-desc">{project.shortDesc}</p>
                   <span>engineer credentials</span>
-                  <span>email: {project.email}</span>
-                  <span>password: {project.password}</span>
+                  {project.email && <p>email: {project.email}</p>}
+                  {project.password && <p>password: {project.password}</p>}
 
                   <div className="project-tags-row">
                     {project.tags.map((tag) => (
